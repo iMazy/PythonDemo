@@ -20,9 +20,10 @@ class HtmlParser(object):
         return new_urls, new_data
 
     def _get_new_urls(self, page_url, soup):
+
         new_urls = set()
         # 查找 a 标签
-        links = soup.findAll('a', href=re.compile(r'/item/[0-9a-zA-Z]+$'))
+        links = soup.findAll('a', href=re.compile(r"/item/[0-9a-zA-Z]+$"))
 
         for link in links:
             new_url = link['href']
@@ -32,7 +33,8 @@ class HtmlParser(object):
         return new_urls
 
     def _get_new_date(self, page_url, soup):
-        res_data = set()
+
+        res_data = {}
 
         # url
         res_data['url'] = page_url

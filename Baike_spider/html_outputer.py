@@ -15,10 +15,11 @@ class HtmlOutputer(object):
         self.datas.append(data)
 
     def output_html(self):
+
         file = open('output.txt','w+', encoding='utf-8')
 
         for  data in self.datas:
-            file.write("-----------------------------------------------------------------\n")
+            file.write("-----------------------------------------------------------------" + "\n")
             file.write(data['title'] + '\n')
             file.write(data['url'] + '\n')
             file.write(data['summary'] + '\n')
