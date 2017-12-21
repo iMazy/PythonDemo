@@ -5,4 +5,4 @@
 # @Software: PyCharm
 
 class Tool(object):
-    
+    pass
