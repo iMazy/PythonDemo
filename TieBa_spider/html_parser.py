@@ -15,7 +15,7 @@ class HtmlParser(object):
     def parser(self, html_content):
         title = self.get_title(html_content)
         page_count = self.get_page_num(html_content)
-        content = self.get_content(html_content)
+        content = self.get_contents(html_content)
 
         return title, page_count, content
 
@@ -43,7 +43,7 @@ class HtmlParser(object):
             return None
 
     # 获取每一层楼的内容,传入页面内容
-    def get_content(self, html_content):
+    def get_contents(self, html_content):
         pattern = re.compile('<div id="post_content_.*?>(.*?)</div>', re.S)
         items = re.findall(pattern, html_content)
         contents = []

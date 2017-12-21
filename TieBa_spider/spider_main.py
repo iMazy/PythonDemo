@@ -29,12 +29,12 @@ class BDTB(object):
 
     def start(self):
 
-        indexPath = self.downloader.get_page(self.baseUrl, self.onlyLZ, 1)
-        # pageNum = self.parser.get_page_num(indexPath)
-        # title =  self.parser.get_title(indexPath)
+        content = self.downloader.get_page(self.baseUrl, self.onlyLZ, 1)
+        page_count = self.parser.get_page_num(content)
+        title =  self.parser.get_title(content)
 
-        title, page_count, content = self.parser.parser(indexPath)
 
+        contents = []
         if page_count == None:
             print("URL已失效，请重试")
             return
@@ -43,13 +43,16 @@ class BDTB(object):
             for i in range(1, int(page_count) + 1):
                 print("正在写入第" + str(i) + "页数据")
                 page = self.downloader.get_page(self.baseUrl, self.onlyLZ, i)
-                title, page_count, content = self.parser.parser(page)
-                self.outputer.outputer(title, content, self.floorTag)
+                content = self.parser.get_contents(page)
+                for c in content:
+                    contents.append(c)
+            self.outputer.outputer(title, contents, self.floorTag)
         # 出现写入异常
         except IOError as err:
             print("写入异常，原因" + err.message)
         finally:
             print("写入任务完成")
+
 
 
 
