@@ -26,18 +26,23 @@ class HtmlParser(object):
 
     def get_one_company(self, soup):
 
+        company_soup = soup.find('div', class_="info-company")
         # company name
-        com_name = soup.find('div', class_="info-company").find('a').text
-        # job name
-        all = soup.find('div', class_="info-primary").find('h3', class_="name").a.text
-        sala = soup.find('div', class_="info-primary").find('h3', class_="name").a.span.text
-        job = all.replace(sala, "")
-
-        salary = soup.find('div', class_="info-primary").find('h3', class_="name").a.span.text
-        # conpany require
-        job_require = soup.find('div', class_="info-primary").find('p').text
-
+        com_name = company_soup.find('a').text
         # company desc
-        com_desc = soup.find('div', class_="info-company").find('p').text
+        com_desc = company_soup.find('p').text
+
+
+        primary_soup = soup.find('div', class_="info-primary")
+        # job name
+        all = primary_soup.find('h3', class_="name").a.text
+        sala = primary_soup.find('h3', class_="name").a.span.text
+        job = all.replace(sala, "")
+        # salary
+        salary = primary_soup.find('h3', class_="name").a.span.text
+        # conpany require
+        job_require = primary_soup.find('p').text
+
+
 
         return [com_name, job, salary, job_require, com_desc]
