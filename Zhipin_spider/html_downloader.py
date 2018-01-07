@@ -34,14 +34,11 @@ class HtmlDownloader(object):
 
             result = requests.get(baseUrl, params=param, headers=header)
 
-            print(result.text)
+            # print(result.text)
 
             return result.text
+
         except Exception as err:
             print(err)
             print("Boss直聘爬取失败")
             return None
-
-
-boss_spider = HtmlDownloader()
-boss_spider.get_page("http://www.zhipin.com/job_detail/", "1", "ios")
