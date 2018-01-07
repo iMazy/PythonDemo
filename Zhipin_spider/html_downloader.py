@@ -10,12 +10,6 @@ import ssl
 
 class HtmlDownloader(object):
 
-# http://www.zhipin.com/job_detail/?query=swift&scity=101010100&source=2
-# http://www.zhipin.com/job_detail/?query=ios&scity=101010100
-# http://www.zhipin.com/c100010000/?query=ios&page=2&ka=page-2
-# http://www.zhipin.com/c101010100/h_101010100/?query=ios&page=3&ka=page-3
-# https://www.zhipin.com/c101010100/h_101010100/?query=ios&page=4
-
     # 初始化方法，定义一些变量
     def __init__(self):
         ssl._create_default_https_context = ssl._create_unverified_context
@@ -28,7 +22,7 @@ class HtmlDownloader(object):
             header = {
                 'User-Agent': r'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)'
                               r'Chrome/45.0.2454.85 Safari/537.36 115Browser/6.0.3',
-                'Referer': r'http://www.lagou.com/zhaopin/Python/?labelWords=label',
+                'Referer': r'http://www.zhipin.com/job_detail/',
                 'Connection': 'keep-alive'
             }
 

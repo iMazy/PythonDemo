@@ -4,7 +4,7 @@
 # @File    : spider_main.py
 # @Software: PyCharm
 
-from Zhipin_spider import html_downloader, html_parser
+from Zhipin_spider import html_downloader, html_parser, html_outputer
 import time
 import random
 
@@ -12,6 +12,7 @@ class BOSS_Main(object):
     def __init__(self):
         self.downloader = html_downloader.HtmlDownloader()
         self.parser = html_parser.HtmlParser()
+        self.outputer = html_outputer.HtmlOutputer()
 
     def start(self, baseURL, page_count):
 
@@ -32,6 +33,10 @@ class BOSS_Main(object):
 
         print(len(all_coms))
         print(all_coms)
+
+        tag_name = ['公司名称', '职位名称', '工资', '所需学历', '公司介绍']
+        self.outputer.save_to_excel(all_coms, tag_name, "test")
+
 
 if __name__ == "__main__":
     print("请输入抓取页数：")

@@ -22,7 +22,7 @@ class HtmlOutputer(object):
                     tmp.write(i, tag_name.index(tag_name_i), tag_name_i)
 
             else:
-                for tag_list in range(len(tag_name):
-                    tmp.write(i, tag_list, str(results[i-1][tag_list])))
+                for tag_list in range(len(tag_name)):
+                    tmp.write(i, tag_list, str(results[i-1][tag_list]))
 
-        book.save()
+        book.save(r'/Users/bai/Desktop/%s.xls' % file_name)
