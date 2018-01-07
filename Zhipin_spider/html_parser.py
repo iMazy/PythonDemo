@@ -43,6 +43,4 @@ class HtmlParser(object):
         # conpany require
         job_require = primary_soup.find('p').text
 
-
-
         return [com_name, job, salary, job_require, com_desc]

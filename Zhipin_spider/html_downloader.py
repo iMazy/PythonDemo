@@ -14,6 +14,7 @@ class HtmlDownloader(object):
     def __init__(self):
         ssl._create_default_https_context = ssl._create_unverified_context
 
+    # 通过 url + 页码 + 关键词 获取数据
     def get_page(self, baseUrl, page_num, keyword):
         try:
             param = {"query": keyword, "city": "101010100", "page": page_num}
