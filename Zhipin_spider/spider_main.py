@@ -35,8 +35,9 @@ class BOSS_Main(object):
         print(all_coms)
 
         tag_name = ['公司名称', '职位名称', '工资', '所需学历', '公司介绍']
-        self.outputer.save_to_excel(all_coms, tag_name, "test")
+        # self.outputer.save_to_excel(all_coms, tag_name, "test")
 
+        self.outputer.save_to_excel_other_way(all_coms, tag_name, "boss")
 
 if __name__ == "__main__":
     print("请输入抓取页数：")
